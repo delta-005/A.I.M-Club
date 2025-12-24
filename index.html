@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A.I.M. Club</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              'montserrat': ['Montserrat', 'sans-serif'],
+              'orbitron': ['Orbitron', 'sans-serif'],
+            },
+            colors: {
+              'dark-bg': '#0D1117',
+              'neon-blue': '#00BFFF',
+              'golden-yellow': '#FFD700',
+              'neon-pink': '#FF1493',
+            },
+            backgroundImage: {
+              'cyber-grid': "repeating-linear-gradient(0deg, theme('colors.neon-blue / 10%') 0, theme('colors.neon-blue / 10%') 1px, transparent 1px, transparent 40px), repeating-linear-gradient(90deg, theme('colors.neon-blue / 10%') 0, theme('colors.neon-blue / 10%') 1px, transparent 1px, transparent 40px)",
+              'admin-mesh': "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(0, 191, 255, 0.1), transparent), linear-gradient(90deg, #111827 1px, transparent 1px), linear-gradient(#111827 1px, transparent 1px)",
+            },
+            dropShadow: {
+              'glow-blue': '0 0 10px rgba(0, 191, 255, 0.7)',
+              'glow-pink': '0 0 10px rgba(255, 20, 147, 0.7)',
+              'glow-yellow': '0 0 10px rgba(255, 215, 0, 0.7)',
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.8s ease-out forwards',
+              'slide-in': 'slideIn 0.5s ease-in-out',
+              'slide-in-left': 'slideInLeft 0.7s ease-out forwards',
+              'pulse-glow': 'pulseGlow 2s infinite ease-in-out',
+              'marquee': 'marquee 30s linear infinite',
+              'marquee-reverse': 'marquee-reverse 30s linear infinite',
+              'spin-slow': 'spin 20s linear infinite',
+              'pulse-point': 'pulsePoint 4s infinite ease-in-out',
+              'pulse-line': 'pulseLine 2.5s infinite ease-in-out',
+              'flow-horizontal': 'flow-horizontal 3s linear infinite',
+              'flow-vertical': 'flow-vertical 3s linear infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'pulse-ring': 'pulseRing 3s cubic-bezier(0.2, 0.8, 0.2, 1) infinite',
+              'orbit-spin': 'spin 40s linear infinite',
+              'twinkle': 'twinkle 7s infinite ease-in-out',
+              'radial-pulse': 'radial-pulse 5s infinite ease-in-out',
+              'particle-move': 'particle-move var(--duration, 50s) linear infinite',
+              'float-subtle': 'float-subtle 10s ease-in-out infinite',
+              'twinkle-soft': 'twinkle-soft 5s infinite ease-in-out',
+              'pulse-grid': 'pulseGrid 10s ease-in-out infinite',
+              'glitch-text': 'glitchText 2s infinite linear alternate-reverse',
+              'neural-bloom': 'neuralBloom 1.5s ease-out forwards',
+              'stream-slow': 'streamSlow 20s linear infinite'
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: 0, transform: 'translateY(15px)' },
+                '100%': { opacity: 1, transform: 'translateY(0)' },
+              },
+              slideIn: {
+                '0%': { transform: 'translateY(20px)', opacity: 0 },
+                '100%': { transform: 'translateY(0)', opacity: 1 },
+              },
+              slideInLeft: {
+                '0%': { transform: 'translateX(-50px)', opacity: 0 },
+                '100%': { transform: 'translateX(0)', opacity: 1 },
+              },
+              pulseGlow: {
+                '0%, 100%': { boxShadow: '0 0 5px #00BFFF, 0 0 10px #00BFFF, 0 0 15px #00BFFF' },
+                '50%': { boxShadow: '0 0 10px #FF1493, 0 0 20px #FF1493, 0 0 30px #FF1493' }
+              },
+              marquee: {
+                '0%': { transform: 'translateX(0%)' },
+                '100%': { transform: 'translateX(-100%)' },
+              },
+              'marquee-reverse': {
+                '0%': { transform: 'translateX(-100%)' },
+                '100%': { transform: 'translateX(0%)' },
+              },
+              pulsePoint: {
+                '0%, 100%': { opacity: 0.3, transform: 'scale(0.8)' },
+                '50%': { opacity: 1, transform: 'scale(1.5)' },
+              },
+              pulseLine: {
+                '0%, 100%': { strokeOpacity: 0.3 },
+                '50%': { strokeOpacity: 1 },
+              },
+              'flow-horizontal': {
+                '0%': { backgroundPosition: '0% 50%' },
+                '100%': { backgroundPosition: '200% 50%' },
+              },
+              'flow-vertical': {
+                '0%': { backgroundPosition: '50% 0%' },
+                '100%': { backgroundPosition: '50% 200%' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-15px)' },
+              },
+               'float-subtle': {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
+              pulseRing: {
+                '0%': { transform: 'scale(0.8)', opacity: 1 },
+                '100%': { transform: 'scale(2.5)', opacity: 0 },
+              },
+              twinkle: {
+                '0%, 100%': { opacity: 0.3, transform: 'scale(0.8)' },
+                '50%': { opacity: 1, transform: 'scale(1.2)' },
+              },
+              'twinkle-soft': {
+                '0%, 100%': { opacity: 0.2 },
+                '50%': { opacity: 0.6 },
+              },
+              'radial-pulse': {
+                '0%, 100%': { boxShadow: '0 0 80px 30px rgba(0, 191, 255, 0)' },
+                '50%': { boxShadow: '0 0 120px 60px rgba(0, 191, 255, 0.15)' },
+              },
+              'particle-move': {
+                '0%': { transform: 'translateY(0) translateX(0)', opacity: 1 },
+                '100%': { transform: 'translateY(var(--y-end, -100vh)) translateX(var(--x-end, 0))', opacity: 0 },
+              },
+              pulseGrid: {
+                  '0%, 100%': { backgroundSize: '40px 40px, 40px 40px' },
+                  '50%': { backgroundSize: '42px 42px, 42px 42px' }
+              },
+              glitchText: {
+                '0%': { textShadow: '2px 0 #FF1493, -2px 0 #00BFFF', clipPath: 'inset(10% 0 30% 0)' },
+                '20%': { textShadow: '-2px 0 #FF1493, 2px 0 #00BFFF', clipPath: 'inset(20% 0 10% 0)' },
+                '40%': { textShadow: '1px 0 #FF1493, -1px 0 #00BFFF', clipPath: 'inset(40% 0 50% 0)' },
+                '60%': { textShadow: '-1px 0 #FF1493, 1px 0 #00BFFF', clipPath: 'inset(80% 0 5% 0)' },
+                '80%': { textShadow: '2px 0 #FF1493, -2px 0 #00BFFF', clipPath: 'inset(10% 0 60% 0)' },
+                '100%': { textShadow: '-2px 0 #FF1493, 2px 0 #00BFFF', clipPath: 'inset(30% 0 20% 0)' },
+              },
+              neuralBloom: {
+                '0%': { transform: 'scale(0.5)', opacity: 0, filter: 'blur(20px)' },
+                '50%': { opacity: 0.6, filter: 'blur(10px)' },
+                '100%': { transform: 'scale(3)', opacity: 0, filter: 'blur(40px)' }
+              },
+              streamSlow: {
+                '0%': { backgroundPosition: '0 0' },
+                '100%': { backgroundPosition: '0 1000px' }
+              }
+            },
+            backgroundSize: {
+                '200': '200% auto',
+                'v-200': 'auto 200%',
+                'admin-grid': '40px 40px, 40px 40px',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+      body {
+        position: relative;
+      }
+      #root {
+        position: relative;
+        z-index: 1;
+      }
+      .transition-backdrop {
+          transition: opacity 0.5s ease-in-out;
+      }
+      .data-stream-overlay {
+          background-image: linear-gradient(rgba(0, 191, 255, 0.05) 1px, transparent 1px);
+          background-size: 100% 40px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.1",
+    "@supabase/supabase-js": "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm"
+  }
+}
+</script>
+</head>
+  <body class="font-montserrat bg-white dark:bg-dark-bg text-gray-800 dark:text-gray-200">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
